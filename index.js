@@ -19,10 +19,10 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.json())
 app.use(cors({
-    origin: 'https://phone-front-app.vercel.app/', // Allow requests from this origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-  }));
+  origin: 'https://phone-front-app.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true  // enable credentials (cookies, authorization headers, etc.)
+}));
 
 
 //product//

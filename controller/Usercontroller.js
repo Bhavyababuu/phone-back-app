@@ -3,13 +3,21 @@ const jwt = require("jsonwebtoken");
 const express = require('express');
 const app = express();
 require('dotenv').config();
-
+const cors = require('cors')({
+  origin: 'https://phone-front-app.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+});
 const registration=require("../Schema/Userschema")
 app.use(express.json());
 
 
 
+
 const registerpost = async(req,res)=>{
+    
+  await cors(req, res);
+
   const {name,uemail,password,phone,address}=req.body
    
     if(!name||!uemail||!password||!address||!phone){
