@@ -57,3 +57,6 @@ app.use("/api/category",categoryRoute)
 app.listen(PORT,()=>{
     console.log("the server is running at port 5000");
 })
+module.exports = (req, res) => {
+  res.status(200).json({ message: 'Hello from the backend!' });
+};
