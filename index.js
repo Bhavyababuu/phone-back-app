@@ -12,6 +12,10 @@ const addcart = require('./Schema/addtocartschema');
 const app = express();
 
 app.use('/uploads', express.static('uploads'))
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Optional: Handle favicon.ico requests specifically
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 connectDB()
