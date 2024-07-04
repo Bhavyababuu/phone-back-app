@@ -25,8 +25,9 @@ app.use(express.json())
 app.use(cors({
   origin: 'https://phone-front-app.vercel.app',
   methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
-  credentials: true  // Enable CORS with credentials if needed
+  credentials: true,  // Enable CORS with credentials if needed
+  optionsSuccessStatus:200,
+  headers:"*"
 }));
 
 
