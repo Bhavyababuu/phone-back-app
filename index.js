@@ -1,6 +1,12 @@
 const express = require('express');
 const product = require('./Schema/productschema');
 const cors =require('cors')
+const corsConfig ={
+  origin:"*",
+  Credential:true,
+  methods:["GET","POST"]
+
+}
 const path=require('path')
 
 const connectDB = require('./Database')
@@ -22,13 +28,15 @@ connectDB()
 const PORT = process.env.PORT || 5000 
 
 app.use(express.json())
-app.use(cors({
-  origin: 'https://phone-front-app.vercel.app',
-  methods: ['GET', 'POST'],
-  credentials: true,  // Enable CORS with credentials if needed
-  optionsSuccessStatus:200,
-  headers:"*"
-}));
+app.options("",cors(corsConfig))
+app.use(cors(corsConfig
+
+  // origin: 'https://phone-front-app.vercel.app',
+  // methods: ['GET', 'POST'],
+  // credentials: true,  // Enable CORS with credentials if needed
+  // optionsSuccessStatus:200,
+  // headers:"*"
+));
 
 
 

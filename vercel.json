@@ -1,20 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "*.js",
-        "use": "@vercel/node"
-      }
-      
-    ],
-    "headers": [
-      { "source": "/(.*)", 
-      "headers":[
-        {
-          "key":"access-control-allow-origin",
-          "value" :"*"
-        }
-      ]}
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "public/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
